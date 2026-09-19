@@ -275,8 +275,9 @@ The preferred full ANSYS package is a Workbench archive (`.wbpz`) rather than a 
 
 The final A2 archive is approximately **900 MB** and is distributed through GitHub Releases rather than committed directly to the repository.
 
-**Release asset:** `pneumatic_gripper_final_A2.wbpz`  
-**Release page:** [Latest release](https://github.com/Tonylo-lab/pneumatic-gripper-fea/releases/latest)
+**Release asset:** `pneumatic_gripper_case_A2_final.wbpz`  
+**Release page:** [Latest release](https://github.com/Tonylo-lab/pneumatic-gripper-fea/releases/latest)  
+**Direct archive download:** [pneumatic_gripper_case_A2_final.wbpz](https://github.com/Tonylo-lab/pneumatic-gripper-fea/releases/download/v1.0/pneumatic_gripper_case_A2_final.wbpz)
 
 Release notes are prepared in [RELEASE_NOTES.md](RELEASE_NOTES.md).
 
