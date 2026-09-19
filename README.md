@@ -2,13 +2,21 @@
 
 A nonlinear finite-element design study of a pneumatically actuated gripper, developed from an existing SolidWorks mechanism and evaluated in ANSYS Mechanical.
 
-The project focuses on three stages:
+> **Design path:** Baseline → Case A1 Contact Interface Correction → Case A2 Topology-Informed Jaw Plate Redesign
 
-1. **Baseline** — characterize the original mechanism, gripping response, stress field, contact behavior, and mesh sensitivity.
-2. **Case A1 — Contact Interface Correction** — correct the jaw-contact-block face orientation to improve contact load transfer.
-3. **Case A2 — Topology-Informed Jaw Plate Redesign** — use topology optimization to guide a lighter jaw plate, then validate the redesigned plate in the complete nonlinear gripper assembly.
+## Key Results
 
-> Final design path: **Baseline → Case A1 → Case A2 (Final Design)**
+The final A2 design reduced the jaw-plate mass from **40.10 g to 31.198 g per part (-22.2%)** while preserving approximately the same jaw-plate stress as the original baseline (**8.9373 MPa → 8.9109 MPa**).
+
+Relative to Case A1, the final A2 full-assembly validation showed:
+
+- **49.2% lower** maximum contact pressure
+- **134.0% higher** total contact area
+- **31.6% lower** global maximum equivalent stress
+- **46.9% lower** global maximum principal stress
+- only **2.65% change** in actuator reaction force
+
+These results were obtained after returning the redesigned jaw plate to the complete nonlinear gripper model rather than validating the topology study in isolation.
 
 ---
 
@@ -18,7 +26,7 @@ The gripper was originally designed in SolidWorks for a robotics application. It
 
 The complete assembly was modeled in ANSYS Mechanical with:
 
-- prescribed actuator displacement of **−28.8 mm**
+- prescribed actuator displacement of **-28.8 mm**
 - **Large Deflection = On**
 - rigid target cube
 - frictionless jaw-block-to-cube contact
@@ -34,13 +42,15 @@ The complete assembly was modeled in ANSYS Mechanical with:
 | Poisson's ratio | 0.35 |
 | Density | 1240 kg/m³ |
 
+For the full setup and design workflow, see [docs/methodology.md](docs/methodology.md).
+
 ---
 
-## Baseline Model
+## 1. Baseline Characterization
 
-The baseline study established the mechanism response over the gripping stroke and identified the dominant stress and contact behavior.
+The baseline study established the gripping response, stress field, contact behavior, and component load paths.
 
-The mechanism reaches a four-contact gripping state at approximately **−22.5 mm** actuator displacement and becomes substantially stiffer toward the end of travel.
+The mechanism first reached a four-contact gripping state at approximately **-22.5 mm** actuator displacement and became substantially stiffer toward the end of travel.
 
 ### Baseline production results
 
@@ -58,14 +68,14 @@ The mechanism reaches a four-contact gripping state at approximately **−22.5 m
 The baseline model was also used to decide which parts were suitable for redesign.
 
 - **Jaw Plate:** low stress relative to its mass, making it a good lightweighting candidate.
-- **Actuation Link:** high local stress around the Y-fork / pivot region, so aggressive material removal was avoided.
-- **Mounting Frame:** high absolute mass, but it was excluded from the final project scope to keep the design study focused.
+- **Actuation Link:** localized high stress around the Y-fork / pivot region, so aggressive material removal was avoided.
+- **Mounting Frame:** large absolute mass-reduction opportunity, but excluded from the final project scope to keep the study focused.
 
 ---
 
-## Mesh Convergence
+## 2. Mesh Convergence
 
-A four-level mesh convergence study was performed at the final **−28.8 mm** gripping displacement.
+A four-level mesh convergence study was performed at the final **-28.8 mm** gripping displacement.
 
 | Mesh | Nodes | Elements | Reaction Force (N) | Max Eq. Stress (MPa) | Max Principal Stress (MPa) | Max Contact Pressure (MPa) |
 |---|---:|---:|---:|---:|---:|---:|
@@ -74,21 +84,21 @@ A four-level mesh convergence study was performed at the final **−28.8 mm** gr
 | **M2** | **168,478** | **84,428** | **256.67** | **48.007** | **57.060** | **19.779** |
 | M3 | 219,611 | 113,578 | 256.28 | 49.724 | 58.151 | 19.767 |
 
-**M2** was selected as the production mesh. Relative to M3, the reaction-force difference is about **0.15%**, while the equivalent-stress difference is about **3.45%**.
+**M2** was selected as the production mesh. Relative to M3, the reaction-force difference is approximately **0.15%**, while the equivalent-stress difference is approximately **3.45%**.
 
 ---
 
-## Case A1 — Contact Interface Correction
+## 3. Case A1 — Contact Interface Correction
 
-Inspection of the deformed baseline configuration showed approximately **5.3°** contact-face misalignment at the final gripping position.
+Inspection of the deformed baseline configuration showed approximately **5.3°** contact-face misalignment near the final gripping position.
 
-A full 5.3° geometric correction reduced available closure too much because the actuator was already near its physical stroke limit. A reduced **3° wedge correction** was therefore used.
+A full 5.3° geometric correction reduced the available closure too much because the actuator was already close to its physical stroke limit. A reduced **3° wedge correction** was therefore adopted.
 
-### A1 solver setup
+### A1 nonlinear solver setup
 
-- Block–cube contact: **Frictionless**
+- Block-cube contact: **Frictionless**
 - Contact stabilization damping factor: **0.1**
-- Automatic time stepping: **100 / 20 / 2000** initial / minimum / maximum substeps
+- Initial / minimum / maximum substeps: **100 / 20 / 2000**
 - Maximum equilibrium iterations per substep: **50**
 - Large Deflection: **On**
 
@@ -96,23 +106,21 @@ A full 5.3° geometric correction reduced available closure too much because the
 
 | Metric | Baseline | Case A1 | Change |
 |---|---:|---:|---:|
-| Actuator reaction force | 256.67 N | **48.561 N** | −81.1% |
-| Max contact pressure | 19.779 MPa | **1.1391 MPa** | −94.2% |
-| Total contact area | 32.378 mm² | **122.72 mm²** | +279.0% |
-| Global max equivalent stress | 48.007 MPa | **16.782 MPa** | −65.0% |
-| Global max principal stress | 57.06 MPa | **27.354 MPa** | −52.1% |
+| Actuator reaction force | 256.67 N | **48.561 N** | -81.1% |
+| Max contact pressure | 19.779 MPa | **1.1391 MPa** | -94.2% |
+| Total contact area | 32.3784 mm² | **122.72 mm²** | +279.0% |
+| Global max equivalent stress | 48.007 MPa | **16.782 MPa** | -65.0% |
+| Global max principal stress | 57.06 MPa | **27.354 MPa** | -52.1% |
 
-Because the model is displacement-controlled, reaction force is interpreted primarily as a measure of end-of-travel system stiffness rather than as a direct gripping-force rating.
-
-The main purpose of A1 was to reduce edge-dominated contact loading and improve the contact interface before lightweighting the jaw plate.
+Because the analysis is displacement-controlled, actuator reaction force is interpreted primarily as an end-of-travel stiffness response rather than as a direct gripping-force rating.
 
 ---
 
-## Case A2 — Topology-Informed Jaw Plate Redesign
+## 4. Case A2 — Topology-Informed Jaw Plate Redesign
 
-A separate linearized jaw-plate study was created from the A1 load state to support topology optimization.
+Topology optimization was carried out on a separate linearized jaw-plate model derived from the A1 load state.
 
-### Topology setup
+### Optimization setup
 
 - Design region: **Jaw Plate**
 - Objective: **Minimize compliance**
@@ -120,39 +128,40 @@ A separate linearized jaw-plate study was created from the A1 load state to supp
 - Optimization method: **Mixable Density**
 - Final CAD method: **Topology-informed manual redesign**
 
-The raw topology result was used as a load-path reference rather than as final manufacturable geometry. A clean CAD redesign was then created and returned to the complete nonlinear gripper model for validation.
+The raw density result was used as a **load-path reference**, not as final geometry. A clean CAD redesign was then returned to the complete nonlinear gripper assembly for final validation.
 
 ---
 
-## Final A2 Full-Assembly Validation
+## 5. Final A2 Full-Assembly Validation
 
 | Metric | Case A1 | Final A2 | Change |
 |---|---:|---:|---:|
-| Jaw plate mass / part | 40.10 g | **31.198 g** | **−22.2%** |
+| Jaw plate mass / part | 40.10 g | **31.198 g** | **-22.2%** |
 | Jaw plate max equivalent stress | 7.7262 MPa | **8.9109 MPa** | +15.3% |
 | Actuator reaction force | 48.561 N | **49.848 N** | +2.65% |
-| Max contact pressure | 1.1391 MPa | **0.57908 MPa** | **−49.2%** |
+| Max contact pressure | 1.1391 MPa | **0.57908 MPa** | **-49.2%** |
 | Total contact area | 122.72 mm² | **287.179 mm²** | **+134.0%** |
-| Global max equivalent stress | 16.782 MPa | **11.485 MPa** | **−31.6%** |
-| Global max principal stress | 27.354 MPa | **14.537 MPa** | **−46.9%** |
+| Global max equivalent stress | 16.782 MPa | **11.485 MPa** | **-31.6%** |
+| Global max principal stress | 27.354 MPa | **14.537 MPa** | **-46.9%** |
 
-The final jaw plate is approximately **22% lighter** than the A1 plate while the actuator reaction force remains nearly unchanged. The redesigned assembly also shows lower global stress and a larger, lower-pressure contact footprint.
+Relative to the original baseline, the final jaw-plate stress is essentially unchanged (**8.9373 MPa → 8.9109 MPa**) despite the **22.2%** mass reduction.
 
-Relative to the original baseline, the final jaw-plate stress is essentially unchanged (**8.9373 MPa → 8.9109 MPa**) despite the mass reduction.
+See [docs/results.md](docs/results.md) for the full design-evolution summary.
 
 ---
 
 ## Engineering Takeaways
 
-This project was structured as a design-validation workflow rather than a single FEA run:
+This project was structured as a design-validation workflow rather than as a single FEA run:
 
-- use the baseline model to identify the actual load path and critical components
-- verify mesh sensitivity before redesign
-- correct contact-interface geometry before lightweighting
-- use topology optimization as a design guide, not as final CAD
-- return the redesigned part to the complete nonlinear assembly for final validation
+- characterize the nonlinear mechanism before redesign
+- verify mesh sensitivity
+- use the baseline result to choose an appropriate optimization target
+- correct the contact interface before lightweighting
+- use topology optimization as a design guide rather than final CAD
+- validate the redesigned part in the complete nonlinear assembly
 
-The actuation-link hotspot also demonstrates why component selection matters: not every low-volume region is a good candidate for material removal.
+The actuation-link hotspot also demonstrates why component selection matters: not every low-volume region is a suitable candidate for material removal.
 
 ---
 
@@ -161,18 +170,30 @@ The actuation-link hotspot also demonstrates why component selection matters: no
 ```text
 pneumatic-gripper-fea/
 ├── README.md
+├── docs/
+│   ├── methodology.md
+│   └── results.md
 ├── assets/
-│   ├── baseline/
-│   ├── case-a1/
-│   ├── topology/
-│   └── final-a2/
+│   └── README.md
 ├── results/
-│   └── gripper_fea_results.xlsx
+│   ├── README.md
+│   └── summary.csv
 ├── cad/
-└── ansys/
+│   └── README.md
+├── ansys/
+│   └── README.md
+└── .gitignore
 ```
 
-Additional CAD, ANSYS project files, plots, and result images will be added as the repository is completed.
+Binary artifacts such as result figures, CAD exchange files, and the final Excel workbook are added separately from the text documentation. The full ANSYS Workbench archive is approximately **900 MB** and is intentionally kept out of the normal Git history.
+
+---
+
+## Reproducibility
+
+The preferred full ANSYS package is a Workbench archive (`.wbpz`) rather than a standalone `.wbpj`, because the latter depends on its associated project-data directory.
+
+The final A2 archive is approximately **900 MB**. If distributed publicly, it should be provided as a release/download artifact rather than committed directly to the repository.
 
 ---
 
@@ -186,4 +207,4 @@ Additional CAD, ANSYS project files, plots, and result images will be added as t
 
 ## Scope and Limitations
 
-This study uses a simplified isotropic material model for FDM PLA and prescribed actuator displacement because the actual pneumatic cylinder force was not available. The rigid cube and frictionless jaw-block contact are modeling assumptions for design comparison rather than a complete experimental characterization of real gripping performance.
+This study uses a simplified isotropic material model for FDM PLA and prescribed actuator displacement because the actual pneumatic-cylinder force was not available. The rigid cube and frictionless jaw-block contact are modeling assumptions for design comparison rather than a complete experimental characterization of real gripping performance.
