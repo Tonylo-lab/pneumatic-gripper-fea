@@ -8,13 +8,15 @@ The full Final A2 Workbench archive is approximately **900 MB**, so it is intent
 
 Expected release asset:
 
-- `pneumatic_gripper_final_A2.wbpz`
+- `pneumatic_gripper_case_A2_final.wbpz`
 
 Release tag:
 
 - `v1.0`
 
-Once published, the archive will be available from the repository's **Releases** page.
+Published release: [v1.0](https://github.com/Tonylo-lab/pneumatic-gripper-fea/releases/tag/v1.0)
+
+Direct download: [pneumatic_gripper_case_A2_final.wbpz](https://github.com/Tonylo-lab/pneumatic-gripper-fea/releases/download/v1.0/pneumatic_gripper_case_A2_final.wbpz)
 
 ## Distribution strategy
 
