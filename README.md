@@ -240,6 +240,7 @@ The actuation-link hotspot also demonstrates why component selection matters: no
 ```text
 pneumatic-gripper-fea/
 ├── README.md
+├── RELEASE_NOTES.md
 ├── docs/
 │   ├── methodology.md
 │   └── results.md
@@ -272,7 +273,12 @@ Portable CAD geometry is provided in the [`cad/`](cad/) directory as STEP files 
 
 The preferred full ANSYS package is a Workbench archive (`.wbpz`) rather than a standalone `.wbpj`, because the latter depends on its associated project-data directory.
 
-The final A2 archive is approximately **900 MB**. If distributed publicly, it should be provided as a release/download artifact rather than committed directly to the repository.
+The final A2 archive is approximately **900 MB** and is distributed through GitHub Releases rather than committed directly to the repository.
+
+**Release asset:** `pneumatic_gripper_final_A2.wbpz`  
+**Release page:** [Latest release](https://github.com/Tonylo-lab/pneumatic-gripper-fea/releases/latest)
+
+Release notes are prepared in [RELEASE_NOTES.md](RELEASE_NOTES.md).
 
 ---
 
