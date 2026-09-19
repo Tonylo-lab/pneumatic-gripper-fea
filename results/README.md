@@ -1,11 +1,11 @@
 # Results
 
-This directory contains the compact numerical outputs used in the project documentation.
+This directory contains the numerical outputs used in the project documentation.
 
 ## Files
 
-- `summary.csv` — consolidated Baseline, Case A1, and Final A2 metrics for quick inspection.
-- `gripper_fea_results.xlsx` — full design-study workbook with the load study, mesh convergence study, case-by-case results, and comparison tables. This workbook will be added as the final binary project artifact.
+- `summary.csv` — consolidated Baseline, Case A1, and Final A2 metrics.
+- `gripper_fea_results.xlsx` — full design-study workbook containing the load study, mesh-convergence study, case results, and comparison tables.
 
 ## Result conventions
 
