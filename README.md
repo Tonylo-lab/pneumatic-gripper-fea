@@ -166,6 +166,25 @@ The raw density result was used as a **load-path reference**, not as final geome
 
 <p align="center"><em>Topology-density result used as a qualitative load-path guide for the jaw-plate redesign.</em></p>
 
+### Jaw Plate CAD Redesign
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<img src="assets/baseline/original_jaw_plate.png" alt="Original jaw plate CAD">
+</td>
+<td width="50%" valign="top">
+<img src="assets/final-a2/final_jaw_plate.png" alt="Final A2 jaw plate CAD">
+</td>
+</tr>
+<tr>
+<td align="center"><strong>Original Jaw Plate</strong><br><em>40.10 g per part</em></td>
+<td align="center"><strong>Final A2 Jaw Plate</strong><br><em>31.198 g per part (-22.2%)</em></td>
+</tr>
+</table>
+
+The final CAD preserves the functional pivot and mounting interfaces while removing material from the low-demand interior region identified by the topology study. The resulting geometry was then revalidated in the complete nonlinear gripper assembly.
+
 ---
 
 ## 5. Final A2 Full-Assembly Validation
