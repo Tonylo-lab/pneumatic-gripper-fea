@@ -6,7 +6,7 @@ This release provides the complete ANSYS Workbench archive for the **Final A2 no
 
 ### Included release asset
 
-- `pneumatic_gripper_final_A2.wbpz`
+- `pneumatic_gripper_case_A2_final.wbpz`
 
 ### Project progression
 
