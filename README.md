@@ -104,6 +104,12 @@ A four-level mesh convergence study was performed at the final **-28.8 mm** grip
 
 **M2** was selected as the production mesh. Relative to M3, the reaction-force difference is approximately **0.15%**, while the equivalent-stress difference is approximately **3.45%**.
 
+<p align="center">
+  <img src="assets/baseline/mesh_convergence.svg" width="82%" alt="Mesh convergence relative deviation from M3">
+</p>
+
+<p align="center"><em>Relative deviation of key response quantities from the finest M3 mesh. M2 was selected as the production mesh.</em></p>
+
 ---
 
 ## 3. Case A1 — Contact Interface Correction
