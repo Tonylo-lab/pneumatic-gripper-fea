@@ -1,0 +1,4 @@
+stage,actuator_reaction_force_N,max_contact_pressure_MPa,total_contact_area_mm2,global_max_equivalent_stress_MPa,global_max_principal_stress_MPa,jaw_plate_max_equivalent_stress_MPa,jaw_plate_mass_g
+Baseline,256.67,19.779,32.3784,48.007,57.06,8.9373,40.1
+Case A1,48.561,1.1391,122.72,16.782,27.354,7.7262,40.1
+Final A2,49.848,0.57908,287.179,11.485,14.537,8.9109,31.198
