@@ -9,4 +9,4 @@ Portable STEP geometry is included so the design can be inspected without requir
 - `final_a2_gripper.STEP` — final A2 gripper assembly geometry
 - `final_a2_jaw_plate.STEP` — topology-informed final jaw plate
 
-These STEP files are intended as lightweight exchange geometry for portfolio review and downstream CAD/CAE inspection.
+The STEP files provide neutral exchange geometry for CAD/CAE inspection and comparison between the baseline and final A2 designs.
