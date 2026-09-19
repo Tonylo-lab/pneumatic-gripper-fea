@@ -1,0 +1,29 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# ANSYS Workbench archives are distributed separately
+*.wbpz
+
+# ANSYS / Mechanical generated data
+*_files/
+*.mechdb
+*.rst
+*.rth
+*.full
+*.emat
+*.esav
+*.osav
+*.mntr
+*.stat
+*.err
+*.lock
+
+# Solver scratch / temporary output
+*.tmp
+*.bak
+
+# SolidWorks temporary files
+~$*.SLDPRT
+~$*.SLDASM
+~$*.SLDDRW
