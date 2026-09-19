@@ -2,9 +2,9 @@
 
 ## Pneumatic Gripper FEA Design Study
 
-This release provides the complete ANSYS Workbench archive for the **Final A2 nonlinear gripper validation**.
+This release contains the complete ANSYS Workbench archive for the **Final A2 nonlinear gripper validation**.
 
-### Included release asset
+### Release asset
 
 - `pneumatic_gripper_case_A2_final.wbpz`
 
@@ -14,15 +14,15 @@ Baseline → Case A1 contact-interface correction → topology-informed jaw-plat
 
 ### Repository contents
 
-The main repository contains the compact, review-friendly project materials:
+The repository includes:
 
 - methodology and design rationale
 - mesh-convergence study
-- Baseline, A1, topology, and Final A2 result figures
+- Baseline, Case A1, topology, and Final A2 result figures
 - numerical result workbook and summary table
 - baseline and final CAD exchange geometry in STEP format
 
-The large `.wbpz` archive is provided separately as a release asset to keep the Git history lightweight.
+The `.wbpz` archive is distributed as a release asset to keep the Git history lightweight.
 
 ### Software
 
