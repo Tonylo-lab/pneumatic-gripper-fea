@@ -1,11 +1,12 @@
 # CAD
 
-This directory is reserved for lightweight exchange versions of the gripper geometry.
+Portable STEP geometry is included so the design can be inspected without requiring the original SolidWorks environment.
 
-Recommended artifacts:
+## Files
 
-- baseline assembly reference geometry
-- final A2 jaw plate
-- final A2 assembly reference geometry
+- `baseline_gripper.STEP` — baseline gripper assembly geometry
+- `original_jaw_plate.STEP` — original jaw plate used in the baseline / A1 design
+- `final_a2_gripper.STEP` — final A2 gripper assembly geometry
+- `final_a2_jaw_plate.STEP` — topology-informed final jaw plate
 
-For portability, STEP or Parasolid files are preferred over software-specific working folders. Native SolidWorks files can be added separately if sharing them is useful and the repository size remains reasonable.
+These STEP files are intended as lightweight exchange geometry for portfolio review and downstream CAD/CAE inspection.
