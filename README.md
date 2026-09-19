@@ -24,6 +24,12 @@ These results were obtained after returning the redesigned jaw plate to the comp
 
 The gripper was originally designed in SolidWorks for a robotics application. It clamps a hollow **150 × 150 × 150 mm** cube using a pneumatic actuator and a multi-link mechanism.
 
+<p align="center">
+  <img src="assets/baseline/baseline_gripper_cad.png" width="72%" alt="Baseline pneumatic gripper CAD assembly">
+</p>
+
+<p align="center"><em>Baseline gripper assembly developed in SolidWorks.</em></p>
+
 The complete assembly was modeled in ANSYS Mechanical with:
 
 - prescribed actuator displacement of **-28.8 mm**
@@ -63,6 +69,12 @@ The mechanism first reached a four-contact gripping state at approximately **-22
 | Jaw plate mass / part | **40.10 g** |
 | Jaw plate max equivalent stress | **8.9373 MPa** |
 
+<p align="center">
+  <img src="assets/baseline/baseline_equivalent_stress.png" width="82%" alt="Baseline equivalent stress result">
+</p>
+
+<p align="center"><em>Baseline full-assembly equivalent stress at the final -28.8 mm actuator displacement.</em></p>
+
 ### Component screening
 
 The baseline model was also used to decide which parts were suitable for redesign.
@@ -70,6 +82,12 @@ The baseline model was also used to decide which parts were suitable for redesig
 - **Jaw Plate:** low stress relative to its mass, making it a good lightweighting candidate.
 - **Actuation Link:** localized high stress around the Y-fork / pivot region, so aggressive material removal was avoided.
 - **Mounting Frame:** large absolute mass-reduction opportunity, but excluded from the final project scope to keep the study focused.
+
+<p align="center">
+  <img src="assets/baseline/actuation_link_y_fork_hotspot.png" width="72%" alt="Actuation link Y-fork stress hotspot">
+</p>
+
+<p align="center"><em>Localized stress concentration around the actuation-link Y-fork / pivot region used during component screening.</em></p>
 
 ---
 
@@ -114,6 +132,12 @@ A full 5.3° geometric correction reduced the available closure too much because
 
 Because the analysis is displacement-controlled, actuator reaction force is interpreted primarily as an end-of-travel stiffness response rather than as a direct gripping-force rating.
 
+<p align="center">
+  <img src="assets/case-a1/case_a1_contact_pressure.png" width="82%" alt="Case A1 contact pressure">
+</p>
+
+<p align="center"><em>Case A1 contact-pressure distribution after the 3° contact-face correction.</em></p>
+
 ---
 
 ## 4. Case A2 — Topology-Informed Jaw Plate Redesign
@@ -130,6 +154,12 @@ Topology optimization was carried out on a separate linearized jaw-plate model d
 
 The raw density result was used as a **load-path reference**, not as final geometry. A clean CAD redesign was then returned to the complete nonlinear gripper assembly for final validation.
 
+<p align="center">
+  <img src="assets/topology/topology_density.png" width="72%" alt="Jaw plate topology density result">
+</p>
+
+<p align="center"><em>Topology-density result used as a qualitative load-path guide for the jaw-plate redesign.</em></p>
+
 ---
 
 ## 5. Final A2 Full-Assembly Validation
@@ -145,6 +175,21 @@ The raw density result was used as a **load-path reference**, not as final geome
 | Global max principal stress | 27.354 MPa | **14.537 MPa** | **-46.9%** |
 
 Relative to the original baseline, the final jaw-plate stress is essentially unchanged (**8.9373 MPa → 8.9109 MPa**) despite the **22.2%** mass reduction.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<img src="assets/final-a2/final_a2_equivalent_stress.png" alt="Final A2 equivalent stress">
+</td>
+<td width="50%" valign="top">
+<img src="assets/final-a2/final_a2_contact_pressure.png" alt="Final A2 contact pressure">
+</td>
+</tr>
+<tr>
+<td align="center"><em>Final A2 full-assembly equivalent stress.</em></td>
+<td align="center"><em>Final A2 contact-pressure distribution.</em></td>
+</tr>
+</table>
 
 See [docs/results.md](docs/results.md) for the full design-evolution summary.
 
@@ -174,7 +219,10 @@ pneumatic-gripper-fea/
 │   ├── methodology.md
 │   └── results.md
 ├── assets/
-│   └── README.md
+│   ├── baseline/
+│   ├── case-a1/
+│   ├── topology/
+│   └── final-a2/
 ├── results/
 │   ├── README.md
 │   └── summary.csv
@@ -185,7 +233,7 @@ pneumatic-gripper-fea/
 └── .gitignore
 ```
 
-Binary artifacts such as result figures, CAD exchange files, and the final Excel workbook are added separately from the text documentation. The full ANSYS Workbench archive is approximately **900 MB** and is intentionally kept out of the normal Git history.
+The full ANSYS Workbench archive is approximately **900 MB** and is intentionally kept out of the normal Git history.
 
 ---
 
