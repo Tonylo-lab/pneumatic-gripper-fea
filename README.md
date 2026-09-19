@@ -252,7 +252,11 @@ pneumatic-gripper-fea/
 │   ├── README.md
 │   └── summary.csv
 ├── cad/
-│   └── README.md
+│   ├── README.md
+│   ├── baseline_gripper.STEP
+│   ├── original_jaw_plate.STEP
+│   ├── final_a2_gripper.STEP
+│   └── final_a2_jaw_plate.STEP
 ├── ansys/
 │   └── README.md
 └── .gitignore
@@ -263,6 +267,8 @@ The full ANSYS Workbench archive is approximately **900 MB** and is intentionall
 ---
 
 ## Reproducibility
+
+Portable CAD geometry is provided in the [`cad/`](cad/) directory as STEP files for the baseline and final A2 designs, including the original and redesigned jaw plates.
 
 The preferred full ANSYS package is a Workbench archive (`.wbpz`) rather than a standalone `.wbpj`, because the latter depends on its associated project-data directory.
 
