@@ -8,10 +8,12 @@ Project figures are organized by analysis stage.
 - `baseline/baseline_equivalent_stress.png` — baseline full-assembly equivalent stress
 - `baseline/actuation_link_y_fork_hotspot.png` — actuation-link Y-fork hotspot
 - `baseline/original_jaw_plate.png` — original jaw plate
+- `baseline/original_block.png` — original contact block
 - `baseline/mesh_convergence.svg` — mesh-convergence plot
 
 ## Case A1
 
+- `case-a1/case_a1_corrected_block.png` — contact block with the 3° wedge correction
 - `case-a1/case_a1_contact_pressure.png` — contact-pressure result after interface correction
 
 ## Topology study

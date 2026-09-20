@@ -118,6 +118,25 @@ Inspection of the deformed baseline configuration showed approximately **5.3°**
 
 A full 5.3° geometric correction reduced the available closure too much because the actuator was already close to its physical stroke limit. A reduced **3° wedge correction** was therefore adopted.
 
+### Contact-block geometry correction
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<img src="assets/baseline/original_block.png" alt="Original baseline contact block">
+</td>
+<td width="50%" valign="top">
+<img src="assets/case-a1/case_a1_corrected_block.png" alt="Case A1 corrected contact block">
+</td>
+</tr>
+<tr>
+<td align="center"><strong>Baseline contact block</strong><br><em>Original contact-face geometry</em></td>
+<td align="center"><strong>Case A1 contact block</strong><br><em>3° wedge correction</em></td>
+</tr>
+</table>
+
+The A1 change was implemented as a geometric correction to the jaw contact block. The corrected block geometry was retained in the subsequent Final A2 assembly.
+
 ### A1 nonlinear solver setup
 
 - Block-cube contact: **Frictionless**
@@ -255,6 +274,8 @@ pneumatic-gripper-fea/
 ├── cad/
 │   ├── README.md
 │   ├── baseline_gripper.STEP
+│   ├── original_block.STEP
+│   ├── case_a1_corrected_block.STEP
 │   ├── original_jaw_plate.STEP
 │   ├── final_a2_gripper.STEP
 │   └── final_a2_jaw_plate.STEP
@@ -269,7 +290,7 @@ The full ANSYS Workbench archive is approximately **900 MB** and is intentionall
 
 ## Reproducibility
 
-Portable CAD geometry is provided in the [`cad/`](cad/) directory as STEP files for the baseline and final A2 designs, including the original and redesigned jaw plates.
+Portable CAD geometry is provided in the [`cad/`](cad/) directory as STEP files for the baseline, A1 contact-block correction, and final A2 design.
 
 The preferred full ANSYS package is a Workbench archive (`.wbpz`) rather than a standalone `.wbpj`, because the latter depends on its associated project-data directory.
 
